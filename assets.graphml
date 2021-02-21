@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="labelE" for="edge" attr.name="labelE" attr.type="string" />
+  <key id="name" for="node" attr.name="name" attr.type="string" />
+  <key id="description" for="node" attr.name="description" attr.type="string" />
+  <key id="running" for="node" attr.name="running" attr.type="boolean" />
+  <key id="labelV" for="node" attr.name="labelV" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="0">
+      <data key="labelV">service</data>
+      <data key="name">Customer Database</data>
+      <data key="description">On-premise customer database</data>
+      <data key="running">true</data>
+    </node>
+    <node id="1">
+      <data key="labelV">vpn</data>
+      <data key="name">Inter-site VPN</data>
+      <data key="description">Connects on-premise services to AWS account</data>
+      <data key="running">true</data>
+    </node>
+    <node id="2">
+      <data key="labelV">service</data>
+      <data key="name">Proxy</data>
+      <data key="description">Proxy traffic from AWS to on-premise account</data>
+      <data key="running">true</data>
+    </node>
+    <node id="3">
+      <data key="labelV">service</data>
+      <data key="name">Account Service</data>
+      <data key="description">Gets data from customer database for frontend</data>
+      <data key="running">true</data>
+    </node>
+    <node id="4">
+      <data key="labelV">service</data>
+      <data key="name">Legacy Account Service</data>
+      <data key="description">Old migrated customer service</data>
+      <data key="running">true</data>
+    </node>
+    <node id="5">
+      <data key="labelV">service</data>
+      <data key="name">Payment Service</data>
+      <data key="description">Provides payment services for customers</data>
+      <data key="running">true</data>
+    </node>
+    <node id="6">
+      <data key="labelV">service</data>
+      <data key="name">Sales Service</data>
+      <data key="description">Provides sales services to customers</data>
+      <data key="running">true</data>
+    </node>
+
+    <edge source="1" target="0">
+      <data key="labelE">dependency</data>
+    </edge>
+
+    <edge source="2" target="1">
+      <data key="labelE">dependency</data>
+    </edge>
+
+    <edge source="3" target="2">
+      <data key="labelE">dependency</data>
+    </edge>
+
+    <edge source="3" target="4">
+      <data key="labelE">dependency</data>
+    </edge>
+
+    <edge source="3" target="5">
+      <data key="labelE">dependency</data>
+    </edge>
+
+    <edge source="4" target="2">
+      <data key="labelE">dependency</data>
+    </edge>
+
+    <edge source="6" target="2">
+      <data key="labelE">dependency</data>
+    </edge>
+
+    <edge source="6" target="5">
+      <data key="labelE">dependency</data>
+    </edge>
+
+  </graph>
+</graphml>
